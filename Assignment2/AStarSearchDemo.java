@@ -214,3 +214,18 @@ public class AStarSearchDemo {
 
     }
 }
+
+
+/*
+Output:-
+
+Path found for TestCase1: [(0, 0), (1, 1)]
+Path length: 2
+
+Path found for TestCase2: [(0, 0), (0, 1), (1, 2), (2, 2)]
+Path length: 4
+
+Path found for TestCase3: []
+Path length: 0
+
+*/

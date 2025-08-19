@@ -224,3 +224,17 @@ public class BestFirstSearch {
 
     }
 }
+
+
+/* 
+Output:-
+
+Path found for TestCase1: [(0, 0), (1, 1)]
+Path length: 2
+
+Path found for TestCase2: [(0, 0), (0, 1), (1, 2), (2, 2)]
+Path length: 4
+
+-1 (No path3 exists)
+
+*/
