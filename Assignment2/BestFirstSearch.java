@@ -56,7 +56,6 @@ class State {
         return "(" + row + ", " + col + ")";
     }
 
-    // Getters if needed
     public int getRow() { return row; }
     public int getCol() { return col; }
     public int[][] getGrid() { return grid; }

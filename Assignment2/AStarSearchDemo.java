@@ -116,7 +116,6 @@ class Search {
         Map<State, Integer> f = new HashMap<>();
         Map<State, State> parent = new HashMap<>();
 
-        // Initialization
         parent.put(start, null);
         g.put(start, 0); // g(start) = 0
         f.put(start, g.get(start) + calculateHValue(start));
@@ -157,7 +156,6 @@ class Search {
             }
         }
 
-        // No path exists
         return Collections.emptyList();
     }
 }
@@ -213,6 +211,6 @@ public class AStarSearchDemo {
             System.out.println("Path length: " + path3.size());
         }
         System.out.println();
-        
+
     }
 }
