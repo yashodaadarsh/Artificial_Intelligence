@@ -1,33 +1,49 @@
 # Pathfinding Algorithms: Best-First Search vs A* Search
 
-This project demonstrates two classic informed search algorithms — **Greedy Best-First Search** and **A* Search** — applied to a grid-based pathfinding problem.  
-The grid is represented as a 2D array where `0` indicates a free cell and `1` indicates an obstacle.  
-The start state is always at the top-left corner `(0,0)` and the goal is at the bottom-right corner `(n-1,n-1)`.
+This project demonstrates two informed search strategies for solving grid-based pathfinding problems: **Best-First Search (Greedy)** and **A* Search**.
 
 ---
 
-## 🚀 Algorithms Implemented
-
-### 1. Greedy Best-First Search
-- Uses **only the heuristic** function `h(n)` (Manhattan distance to the goal).
-- Always expands the node that appears closest to the goal.
-- Very fast in practice, but **does not guarantee the optimal path**.
-- Can get stuck exploring misleading paths if the heuristic is not well-informed.
-
-### 2. A* Search
-- Uses both path cost and heuristic: `f(n) = g(n) + h(n)`.
-- `g(n)` = cost from start to current node (steps taken).  
-- `h(n)` = estimated cost from current node to goal (Manhattan distance).  
-- Balances exploration and optimality, ensuring **shortest path is always found** if the heuristic is admissible.
+##  Best-First Search
+- **Evaluation Function**: `f(n) = h(n)`  
+- **How it works**: Chooses the node that appears closest to the goal, using only the heuristic.  
+- **Pros**:  
+  - Can be fast with a good heuristic.  
+  - Simple to implement.  
+- **Cons**:  
+  - Ignores cost so far (`g(n)`), which can lead to detours.  
+  - **Not guaranteed** to find the optimal (shortest) path.  
 
 ---
 
-## 📊 Comparison of Results and Performance
+##  A* Search
+- **Evaluation Function**: `f(n) = g(n) + h(n)`  
+- **How it works**: Balances the actual path cost from the start (`g(n)`) and the estimated cost to the goal (`h(n)`).  
+- **Pros**:  
+  - Finds the **optimal path** if the heuristic is admissible.  
+  - More reliable than Best-First.  
+- **Cons**:  
+  - May expand more nodes (slower in some cases).  
+  - Slightly more complex to implement.  
 
-Best-First Search often finds a path more quickly because it only follows the heuristic, which makes it computationally lighter and faster. However, the path it finds may not be optimal, and in some cases it might even fail to find a path if misled by obstacles.  
+---
 
-A* Search, on the other hand, explores more states since it considers both actual cost and heuristic. This makes it slower and more memory-intensive than Best-First, but it guarantees finding the **optimal path** whenever one exists. In short:  
-- **Best-First Search** → Faster, less reliable.  
-- **A\* Search** → Slower, guaranteed optimal solution.  
+##  Comparison
+
+| Feature                | Best-First Search            | A* Search                        |
+|-------------------------|------------------------------|----------------------------------|
+| **Evaluation Function** | `f(n) = h(n)`               | `f(n) = g(n) + h(n)`             |
+| **Optimality**          | Not guaranteed              | Guaranteed (with admissible `h`) |
+| **Speed**               | Usually faster, less accurate | Slower, more accurate            |
+| **Exploration**         | Focuses on goal direction   | Balances path cost + heuristic   |
+| **Use Case**            | Quick approximate solution  | Optimal pathfinding              |
+
+---
+
+##  Short Discussion
+
+Best-First Search is *greedy* in nature. It looks promising in the short term because it only follows the heuristic, often reaching the goal quickly. However, it can fail to find the shortest path or even get stuck in poor paths if the heuristic is misleading.  
+
+A* Search, on the other hand, combines the **actual cost so far** and the **estimated cost to the goal**. This makes it more thorough and guarantees the shortest path if the heuristic is admissible. Although A* may expand more nodes and take more time, it provides **better and optimal solutions**, making it more reliable for real-world applications like routing, robotics, and AI navigation.
 
 ---
